@@ -6,12 +6,13 @@ const submitBtn = document.getElementById("submitBtn");
 const tableContent = document.getElementById("tableContent");
 const errorMassg = document.querySelector(".box-info");
 bookmarkURLInput.disabled = true;
-let bookmarkList = [];
-bookmarkList = JSON.parse(localStorage.getItem("bookmark"));
+
+let bookmarkList = JSON.parse(localStorage.getItem("bookmark")) || [];
+
 clrInput();
 display();
 
-const addBookmark = function () {
+   function addBookmark() {
   if (isNameValid() && isUrlValid()) {
     let bookmark = {
       name: bookmarkNameInput.value,
